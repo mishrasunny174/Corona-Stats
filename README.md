@@ -1,2 +1,7 @@
 # Corona-Stats
-An cli to get corons stats
+A basec cli to get live corona stats written in go
+
+## Installation
+
+```go install github.com/mishrasunny174/Corona-Stats```
+
