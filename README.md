@@ -1,5 +1,5 @@
 # Corona-Stats
-A basec cli to get live corona stats written in go
+A basic cli to get live corona stats written in go
 
 ## Installation
 
