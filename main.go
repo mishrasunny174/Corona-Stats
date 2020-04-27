@@ -4,17 +4,19 @@ import (
 	"log"
 	"os"
 
-	"github.com/kataras/tablewriter"
 	"github.com/landoop/tableprinter"
 	"github.com/mishrasunny174/Corona-Stats/api"
+	"github.com/olekukonko/tablewriter"
 )
 
 type printableStats struct {
+	Rank        int    `header:"Rank"`
 	CountryName string `header:"Country Name"`
 	TotalCases  int    `header:"Total Cases"`
-	ActiveCases int    `header:"ActiveCases"`
+	ActiveCases int    `header:"Active Cases"`
 	Deaths      int    `header:"Deaths"`
 	Recoverd    int    `header:"Recovered"`
+	TotalTests  int    `header:"Total Tests"`
 }
 
 func getPrintableStats() ([]printableStats, error) {
@@ -23,13 +25,15 @@ func getPrintableStats() ([]printableStats, error) {
 		return nil, err
 	}
 	pStats := make([]printableStats, 0)
-	for _, v := range countries {
+	for i, v := range countries {
 		var p = printableStats{
+			Rank:        i + 1,
 			CountryName: v.CountryName,
-			TotalCases:  v.Stats.Confirmed,
-			Deaths:      v.Stats.Deaths,
-			Recoverd:    v.Stats.Recovered,
-			ActiveCases: v.Stats.Confirmed - v.Stats.Deaths - v.Stats.Recovered}
+			TotalCases:  v.TotalCases,
+			Deaths:      v.Deaths,
+			Recoverd:    v.Recovered,
+			ActiveCases: v.Active,
+			TotalTests:  v.Tests}
 		pStats = append(pStats, p)
 	}
 	return pStats, nil
@@ -45,7 +49,9 @@ func main() {
 	printer.CenterSeparator = "│"
 	printer.ColumnSeparator = "│"
 	printer.RowSeparator = "─"
+	printer.HeaderAlignment = tablewriter.ALIGN_CENTER
 	printer.HeaderBgColor = tablewriter.BgBlackColor
 	printer.HeaderFgColor = tablewriter.FgGreenColor
+	printer.DefaultAlignment = tablewriter.ALIGN_CENTER
 	printer.Print(printableStats)
 }
