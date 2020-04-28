@@ -9,4 +9,4 @@ go install github.com/mishrasunny174/Corona-Stats
 
 ## Demo
 
-[![asciicast](https://asciinema.org/a/324627.svg)](https://asciinema.org/a/324627)
+[![DEMO](https://asciinema.org/a/324627.svg)](https://asciinema.org/a/324627)
