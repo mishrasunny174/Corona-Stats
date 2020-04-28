@@ -7,3 +7,6 @@ A basic cli to get live corona stats written in go
 go install github.com/mishrasunny174/Corona-Stats
 ```
 
+## Demo
+
+[![DEMO](https://asciinema.org/a/324627.svg)](https://asciinema.org/a/324627)

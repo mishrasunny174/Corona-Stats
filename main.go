@@ -50,7 +50,6 @@ func main() {
 	printer.ColumnSeparator = "│"
 	printer.RowSeparator = "─"
 	printer.HeaderAlignment = tablewriter.ALIGN_CENTER
-	printer.HeaderBgColor = tablewriter.BgBlackColor
 	printer.HeaderFgColor = tablewriter.FgGreenColor
 	printer.DefaultAlignment = tablewriter.ALIGN_CENTER
 	printer.Print(printableStats)
